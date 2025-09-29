@@ -29,7 +29,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out source code.'
+                echo 'Checking out source code .'
                 checkout scm
             }
         }
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Snyk Vulnerability Scan') {
             steps {
-                echo 'Running Snyk dependency vulnerability scan .'
+                echo 'Running Snyk dependency vulnerability scan.'
                 sh 'npm install -g snyk'
                 withEnv(["SNYK_TOKEN=${SNYK_TOKEN}"]) {
                     sh 'snyk auth $SNYK_TOKEN'
@@ -64,7 +64,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                echo "Installing Docker CLI inside Node 16 agent."
+                echo "Installing Docker CLI inside Node 16 agent ."
                 sh 'apt-get update && apt-get install -y docker.io curl'
                 sh 'docker --version && node --version'
                 echo "Building Docker image: ${DOCKER_IMAGE}"
