@@ -36,7 +36,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing Node.js dependencies..'
+                echo 'Installing Node.js dependencies.'
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'npm install --save'
